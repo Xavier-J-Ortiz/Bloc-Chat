@@ -2,9 +2,9 @@
      function RoomCtrl(Room) {
      	// this.albumData = Fixtures.getAlbum();
         // this.songPlayer = SongPlayer;
-         this.roomData = Room($firebaseArray).all();
+         this.roomData = Room.all;
      }
      angular
          .module('blocChat')
-         .controller('RoomCtrl', [ '$firebaseArray', 'Room', RoomCtrl]);
+         .controller('RoomCtrl', ['Room', RoomCtrl]);
  })();
