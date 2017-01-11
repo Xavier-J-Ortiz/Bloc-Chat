@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-App = "blocChat">
+<html ng-App = "blocChat" ng-controller="BlocChatCtrl as blocChatRooms">
     <head lang="en">
         <meta charset="UTF-8">
         <title>Bloc Base Project</title>
@@ -7,7 +7,11 @@
         <link rel="stylesheet" href="/styles/style.css">
     </head>
     <body>
-        <aside class='column one-fifth'><ui-view></ui-view></aside>
+        <aside class='column one-fifth'>
+            <h1>Bloc Chat</h1>
+            <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData">{{room.$value}}</p>            
+            </aside>
+        <ui-view></ui-view>
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <!-- AngularFire -->
@@ -27,6 +31,8 @@
         </script>
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Room.js"></script>
+        <script src="/scripts/controllers/BlocChatCtrl.js"></script>
         <script src="/scripts/controllers/RoomCtrl.js"></script>
+
     </body>
 </html>
