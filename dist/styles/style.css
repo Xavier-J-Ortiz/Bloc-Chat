@@ -1,12 +1,14 @@
 body {
-    margin : 0 0 0 0;
+/* added a -20px top margin. Not sure when this moved down, 
+    maybe bootstrap, maybe something else. Keeping it for the time being*/
+    margin : -20px 0 0 0;
     font-family : 'Open Sans';
 }
 
 .column {
     font-weight: normal;
     float: left;
-/*    padding : 1rem 1rem 1rem 1rem;*/
+    padding : 1rem 1rem 1rem 1rem;
     margin: 0px 0px 0px 0px;
 }
 
