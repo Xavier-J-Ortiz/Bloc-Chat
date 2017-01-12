@@ -10,7 +10,7 @@
     <body>
         <aside class='column one-fifth'>                           
             <h1 class="wrapper-room">Bloc Chat</h1>
-            <button type="button" class="btn btn-default room-button">New Room</button>
+            <button type="button" class="btn btn-default room-button" ng-click="blocChatRooms.newRoom()">New Room</button>
             <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData">{{room.$value}}</p>    
         </aside>
         
