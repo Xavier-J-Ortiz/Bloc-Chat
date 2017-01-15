@@ -12,7 +12,7 @@
         <aside class='column one-fifth'>                           
             <h1 class="wrapper-room">Bloc Chat</h1>
             <button type="button" class="btn btn-default room-button" data-toggle="modal" data-target="#myFirstModal">New Room</button>
-            <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData">{{room.$value}}</p>    
+            <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData" ng-click="blocChatRooms.setRoomId(room.$value)">{{room.$value}}</p>    
         </aside>
         
 <!-- Modal -->
@@ -36,7 +36,8 @@
                 </div>
             </div>
         </div>
-        
+        <h1>negOne {{blocChatRooms.getRoomId()}}</h1>
+        <h1>zero {{message.getRoomId()}}</h1>
         <ui-view></ui-view>
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -59,8 +60,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Room.js"></script>
+        <script src="/scripts/services/Message.js"></script>
+        <script src="/scripts/services/Passer.js"></script>
         <script src="/scripts/controllers/BlocChatCtrl.js"></script>
-        <script src="/scripts/controllers/RoomCtrl.js"></script>
+        <script src="/scripts/controllers/MessageCtrl.js"></script>
 
     </body>
 </html>
