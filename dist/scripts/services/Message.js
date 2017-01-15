@@ -5,11 +5,9 @@
       
       return {          
           getByRoomId : function(roomId){
-              var relevantMessages = messages.orderByChild("roomId").equalTo(roomId).on("child_added", function(snapshot) {
-                  console.log(snapshot.key());
-              });            
-              
-              return relevantMessages;
+              console.log(messages);
+              var queryRef = $firebaseArray(ref.orderByChild("roomId").equalTo(roomId));              
+              return queryRef;       
           }          
       };
   }
