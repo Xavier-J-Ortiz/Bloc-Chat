@@ -1,13 +1,9 @@
 (function() {
-     function MessageCtrl(Message, Passer) {
-         this.clickedRoomId = Passer.roomId;
+     function MessageCtrl(Message) {
          this.messageInfo = Message.getByRoomId;
-         this.roomId = Passer.roomIdent;
-         this.setRoomId = Passer.roomIdent;
-         this.getRoomId = Passer.roomId;
          
      }
      angular
          .module('blocChat')
-         .controller('MessageCtrl', ['Message', 'Passer', MessageCtrl]);
+         .controller('MessageCtrl', ['Message', MessageCtrl]);
  })();

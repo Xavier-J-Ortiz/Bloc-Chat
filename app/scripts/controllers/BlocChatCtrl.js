@@ -1,9 +1,8 @@
 (function() {
-     function BlocChatCtrl(Room, Passer) {
+     function BlocChatCtrl($scope, Room) {
+         this.activeRoomId = "";
          this.roomData = Room.all;
          this.newRoom = Room.roomCreate;
-         this.setRoomId = Passer.roomIdent;
-         this.getRoomId = Passer.roomId;
          
          this.logIt = function(input)  {
              console.log(input);
@@ -12,5 +11,5 @@
      }
      angular
          .module('blocChat')
-         .controller('BlocChatCtrl', ['Room', 'Passer', BlocChatCtrl]);
+         .controller('BlocChatCtrl', ['$scope', 'Room', BlocChatCtrl]);
  })();
