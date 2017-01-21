@@ -5,9 +5,14 @@
       
       return {          
           getByRoomId : function(roomId){
-              console.log(messages);
-              var queryRef = $firebaseArray(ref.orderByChild("roomId").equalTo(roomId));              
-              return queryRef;       
+              var answer = null;
+              if (roomId != null){
+                  var queryRef = ref.orderByChild("roomId").equalTo(roomId).on('value', function(snapshot) {
+                      answer = snapshot.val();
+//                      console.log(answer);
+                  });
+              }
+              return answer;       
           }          
       };
   }

@@ -1,1 +1,4 @@
-<h1>{{message.messageInfo("1")}}</h1>
+<h1>{{blocChatRooms.activeRoomId}}</h1>
+<!--<h2>{{blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId)}}</h2>-->
+<h1>{{message.messageInfo(blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId))}}</h1>
+<!--<h2>{{blocChatRooms.roomData[3].$value}}</h2>-->
