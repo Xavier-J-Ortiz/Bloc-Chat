@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html ng-App = "blocChat">
+<html ng-App = "blocChat" ng-controller="BlocChatCtrl as blocChatRooms">
     <head lang="en">
         <meta charset="UTF-8">
         <title>Bloc Base Project</title>
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="/styles/style.css">
     </head>
     <body>
-        <aside class='column one-fifth'><ui-view></ui-view></aside>
+        <aside class='column one-fifth'>                           
+            <h1 class="wrapper-room">Bloc Chat</h1>
+            <button type="button" class="btn btn-default room-button" data-toggle="modal" data-target="#myFirstModal">New Room</button>
+            <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData">{{room.$value}}</p>    
+        </aside>
+        
+<!-- Modal -->
+        <div class="modal fade" id="myFirstModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h2 class="modal-title" id="myModalLabel">Create New Room</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="newRoomName">Enter a room Name:</label>
+                            <input type="text" class="form-control" ng-model="newRoomName">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="blocChatRooms.newRoom(newRoomName)" data-dismiss="modal">Save New Room</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <ui-view></ui-view>
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <!-- AngularFire -->
@@ -25,8 +55,12 @@
             };
             firebase.initializeApp(config);
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Room.js"></script>
+        <script src="/scripts/controllers/BlocChatCtrl.js"></script>
         <script src="/scripts/controllers/RoomCtrl.js"></script>
+
     </body>
 </html>

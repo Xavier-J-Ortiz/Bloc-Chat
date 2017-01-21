@@ -1,5 +1,7 @@
 body {
-    margin : 0 0 0 0;
+/* added a -20px top margin. Not sure when this moved down, 
+    maybe bootstrap, maybe something else. Keeping it for the time being*/
+    margin : -20px 0 0 0;
     font-family : 'Open Sans';
 }
 
@@ -17,5 +19,14 @@ body {
     height: 100vh;
     
 }
+.wrapper-room {
+    display: inline-block;
+}
 
+.room-button {
+    display: inline-block;
+    float: right;
+    margin-top : 19.92px;
+    margin-right : 2rem;
+}
 
