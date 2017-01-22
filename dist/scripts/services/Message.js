@@ -11,7 +11,7 @@
               if (roomId !== undefined){                  
                   ref.orderByChild("roomId").equalTo(roomId).on('value', function(snapshot) {
                       snapshot.val().forEach(function(element){
-                          console.log("element: " + element);
+//                          console.log("element: " + element);
                           if (element != null){
                               roomMessages.push(element);
                           }
