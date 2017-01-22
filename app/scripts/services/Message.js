@@ -5,14 +5,21 @@
       
       return {          
           getByRoomId : function(roomId){
-              var answer = null;
-              if (roomId != null){
-                  var queryRef = ref.orderByChild("roomId").equalTo(roomId).on('value', function(snapshot) {
-                      answer = snapshot.val();
-//                      console.log(answer);
-                  });
+//              var queryAnswer = $firebaseArray(ref.orderByChild("roomId").equalTo(roomId));
+              var roomMessages = [];
+//              console.log(roomId);
+              if (roomId !== undefined){                  
+                  ref.orderByChild("roomId").equalTo(roomId).on('value', function(snapshot) {
+                      snapshot.val().forEach(function(element){
+                          console.log("element: " + element);
+                          if (element != null){
+                              roomMessages.push(element);
+                          }
+                      });
+                  });                  
               }
-              return answer;       
+              
+              return roomMessages;
           }          
       };
   }
