@@ -7,12 +7,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="/styles/style.css">
+        <link rel="stylesheet" href="/styles/messages.css">
+
     </head>
     <body>
         <aside class='column one-fifth'>                           
             <h1 class="wrapper-room">Bloc Chat</h1>
             <button type="button" class="btn btn-default room-button" data-toggle="modal" data-target="#myFirstModal">New Room</button>
-            <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData">{{room.$value}}</p>    
+            <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData" ng-click="blocChatRooms.activeRoomId = room.$value">{{room.$value}}</p>    
         </aside>
         
 <!-- Modal -->
@@ -36,7 +38,9 @@
                 </div>
             </div>
         </div>
-        
+<!--        <h1>{{blocChatRooms.activeRoomId}}</h1>-->
+<!--        <h1>in home {{message.messageInfo("1")}}</h1>-->
+
         <ui-view></ui-view>
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -59,8 +63,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Room.js"></script>
+        <script src="/scripts/services/Message.js"></script>
         <script src="/scripts/controllers/BlocChatCtrl.js"></script>
-        <script src="/scripts/controllers/RoomCtrl.js"></script>
+        <script src="/scripts/controllers/MessageCtrl.js"></script>
 
     </body>
 </html>

@@ -1,1 +1,17 @@
-<h1></h1>
+<h1>{{blocChatRooms.activeRoomId}}</h1>
+<!--<h2>{{blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId)}}</h2>-->
+<!--<h1>{{message.messageInfo(blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId))}}</h1>-->
+<table ng-repeat="msg in (message.messageInfo(blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId)) | orderBy:'sentAt')">
+    <tr class="{{['even', 'odd'][$index%2]}}">
+        <td class="message-messages">
+                <p><b>{{msg.username}}:</b></p>
+                <p>{{msg.content}}</p>
+        </td>
+        <td class="message-timestamp">
+            <p><i>{{msg.sentAt}}</i></p>
+        </td>
+    </tr>
+    
+</table>
+<!--<h3 ng-repeat="msg in message.messageInfo(blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId))">{{msg.username + ": " + msg.content }}</h3>-->
+<!--<h2>{{blocChatRooms.roomData[3].$value}}</h2>-->

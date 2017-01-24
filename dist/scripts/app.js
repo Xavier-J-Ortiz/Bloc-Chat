@@ -6,10 +6,10 @@
             requireBase: false
         });
         
-        $stateProvider
+        $stateProvider        
             .state('home', {
             url: '/',
-            controller: 'RoomCtrl as room',
+            controller: 'MessageCtrl as message',
             templateUrl: '/templates/home.html'
         });
     }

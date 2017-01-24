@@ -1,0 +1,31 @@
+table {
+    width: 80vw;
+}
+
+.username {
+    
+}
+
+.message-messages {
+    display: inline-block;
+    width: 90%;
+    height: 100%;
+    float: left;
+    padding-left: 1rem;
+}
+
+.message-timestamp {
+    display: inline-block;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    float: right;
+    vertical-align: middle;
+    padding-right: 1rem;
+}
+.odd {
+    background-color: ghostwhite;
+}
+.even {
+    background-color: lightgrey;
+}
