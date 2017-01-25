@@ -29,3 +29,24 @@ table {
 .even {
     background-color: lightgrey;
 }
+
+.message-footer{
+    display : inline-block;
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 60px;
+}
+
+.message-button {
+    display: inline-block;
+    float: right;
+    
+/*    margin-top : 19.92px;*/
+    margin-right : 1rem;
+}
+#theMessage {
+    width : 90%;
+    display: inline-block;
+    float : left;
+}
