@@ -35,34 +35,18 @@ table {
     position: absolute;
     bottom: 0;
     width: 80%;
-<<<<<<< HEAD
 }
 
 .message-button {
     
     bottom : 0;
-=======
-    height: 60px;
-}
-
-.message-button {
->>>>>>> 506e48c41af0536d4bfce933c7d66697c745cc01
     display: inline-block;
     float: right;
-    
-/*    margin-top : 19.92px;*/
-<<<<<<< HEAD
     margin: 0 1rem 0 0;
 }
 #theMessage {
     bottom : 0;
     width : 95%;
-=======
-    margin-right : 1rem;
-}
-#theMessage {
-    width : 90%;
->>>>>>> 506e48c41af0536d4bfce933c7d66697c745cc01
     display: inline-block;
     float : left;
 }
