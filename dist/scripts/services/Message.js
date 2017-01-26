@@ -1,35 +1,48 @@
 (function() {
-  function Message($firebaseArray) {
+  function Message($firebaseArray, $cookies) {
       var ref = firebase.database().ref().child("messages");
       var messages = $firebaseArray(ref);
+      //
       var getByRoomId = function(roomId){
           var roomMessages = [];
           if (roomId !== undefined){                  
               ref.orderByChild("roomId").equalTo(roomId).on('value', function(snapshot) {
-                  snapshot.val().forEach(function(element){
-                      if (element != null){
-                          roomMessages.push(element);
+                  var testStructure = snapshot.val();
+                  console.log(testStructure);
+                  angular.forEach(testStructure, function(value, key){
+                      if (key != null){
+                          roomMessages.push(value);
                       }
                   });
               });                  
           }
           return roomMessages;
-      };      
+      };
+      
       var send = function(newMessage, roomId){
-          message.$add(newMessage).then(function(ref){
-              var username = $cookies.get('blocChatCurrentUser');
-              console.log(username);
-              messages.$indexFor();
-              
-              var timeNow = new Date;
-              mm = today.getMonth() + 1;
-              dd = today.getDate();
-              yy = today.getFullYear() - 2000;
-              hh = today.getHours();
-              mm = today.getMinutes();
-              ss = today.getSeconds();
-              
-              var formattedTime = mm + "/" + dd + "/" + yy + " " + hh + ":" + mm + ":" +ss;
+          var username = $cookies.get('blocChatCurrentUser');
+          console.log("This is the saved username: " + username);
+          
+          var timeNow = new Date;
+          mm = timeNow.getMonth() + 1;
+          dd = timeNow.getDate();
+          yy = timeNow.getFullYear() - 2000;
+          hh = timeNow.getHours();
+          mm = timeNow.getMinutes();
+          ss = timeNow.getSeconds();              
+          var formattedTime = mm + "/" + dd + "/" + yy + " " + hh + ":" + mm + ":" +ss;          
+          
+          var packagedMessage = {
+              content : newMessage,
+              roomId : roomId,
+              sentAt : formattedTime,
+              username : username
+          };
+          console.log(packagedMessage);
+          messages.$add(packagedMessage).then(function(ref){
+              var id = ref.key;
+              console.log("added Message with id " + id);
+              rooms.$indexFor(id);
           });
           
       };
@@ -44,5 +57,5 @@
 
   angular
     .module('blocChat')
-    .factory('Message', ['$firebaseArray', Message]);
+    .factory('Message', ['$firebaseArray', '$cookies', Message]);
 })();
