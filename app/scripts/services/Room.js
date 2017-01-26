@@ -10,7 +10,6 @@
               all.$indexFor(id);
           });
       });
-      
       var getRoomKey = (function(roomId){
           var key = undefined;
           all.forEach(function(element){

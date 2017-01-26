@@ -11,11 +11,11 @@
         </td>
     </tr>
 </table>
-<footer class="message-footer" >
+<footer class="message-footer">
     <div id="theMessage">
         <input type="text" class="form-control" ng-model="nextMessage">
     </div>
     <div class="message-button">
-        <button class="btn btn-default" ng-click="message.registerMessage(nextMessage, blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId))">Send</button>
+        <button class="btn btn-default" ng-click="message.registerMessage(nextMessage, blocChatRooms.activeRoomKey(blocChatRooms.activeRoomId)); nextMessage=''">Send</button>
     </div>
 </footer>

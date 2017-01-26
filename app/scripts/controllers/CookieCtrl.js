@@ -9,7 +9,6 @@
          };
      }
     
-
      angular
          .module('blocChat')
          .controller('CookieCtrl', ['$cookies', CookieCtrl]);
