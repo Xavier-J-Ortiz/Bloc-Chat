@@ -16,7 +16,8 @@
             <button type="button" class="btn btn-default room-button" data-toggle="modal" data-target="#myFirstModal">New Room</button>
             <p class="bloc-chat-rooms" ng-repeat="room in blocChatRooms.roomData" ng-click="blocChatRooms.activeRoomId = room.$value">{{room.$value}}</p>    
         </aside>
-<!-- Room Modal -->
+
+    <!-- Room Modal -->
         <div class="modal fade" id="myFirstModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" ng-click="blocChatRooms.newRoom(newRoomName)" data-dismiss="modal">Save New Room</button>
+                        <button type="button" class="btn btn-primary" ng-click="blocChatRooms.newRoom(newRoomName); newRoomName = '';" data-dismiss="modal">Save New Room</button>
                     </div>
                 </div>
             </div>
@@ -57,12 +58,13 @@
                 </div>
             </div>
         </div>
-        
+
 <!--        <h1>{{blocChatRooms.activeRoomId}}</h1>-->
 <!--        <h1>in home {{message.messageInfo("1")}}</h1>-->
         <div class="placeholder-username"></div>
-        
+
         <ui-view></ui-view>
+        
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <!-- AngularFire -->
@@ -82,10 +84,11 @@
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.min.js"></script>
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Room.js"></script>
         <script src="/scripts/services/Message.js"></script>
+        <script src="/scripts/services/Cookie.js"></script>
         <script src="/scripts/services/BlocChatCookies.js"></script>
         <script src="/scripts/controllers/BlocChatCtrl.js"></script>
         <script src="/scripts/controllers/MessageCtrl.js"></script>
