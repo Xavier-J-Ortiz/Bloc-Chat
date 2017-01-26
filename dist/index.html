@@ -33,7 +33,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" ng-click="blocChatRooms.newRoom(newRoomName)" data-dismiss="modal">Save New Room</button>
+                        <button type="button" class="btn btn-primary" ng-click="blocChatRooms.newRoom(newRoomName); newRoomName = '';" data-dismiss="modal">Save New Room</button>
                     </div>
                 </div>
             </div>
@@ -88,6 +88,7 @@
         <script src="/scripts/app.js"></script>
         <script src="/scripts/services/Room.js"></script>
         <script src="/scripts/services/Message.js"></script>
+        <script src="/scripts/services/Cookie.js"></script>
         <script src="/scripts/services/BlocChatCookies.js"></script>
         <script src="/scripts/controllers/BlocChatCtrl.js"></script>
         <script src="/scripts/controllers/MessageCtrl.js"></script>

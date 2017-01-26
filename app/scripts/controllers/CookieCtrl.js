@@ -1,15 +1,11 @@
 (function() {
-     function CookieCtrl($cookies) {
+     function CookieCtrl(Cookie) {
 //         $cookies.put('blocChatCurrentUser', "testeroonie"); 
-         this.setUsername = $cookies.put;
-         this.checkUsername = function(){
-             if ($cookies.get('blocChatCurrentUser') && $cookies.get('blocChatCurrentUser') !== '') {
-                 $("#userModal").modal('hide');
-             }
-         };
+         this.setUsername = Cookie.cookiePut;
+         this.checkUsername = Cookie.whatUsername;
      }
     
      angular
          .module('blocChat')
-         .controller('CookieCtrl', ['$cookies', CookieCtrl]);
+         .controller('CookieCtrl', ['Cookie', CookieCtrl]);
  })();
